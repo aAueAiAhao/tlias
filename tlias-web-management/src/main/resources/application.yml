@@ -9,3 +9,10 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
+
+    #驼峰命名映射
+  #mybatis相关配置
+  #必须与spring平级
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true

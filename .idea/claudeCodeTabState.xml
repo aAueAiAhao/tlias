@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ClaudeCodeTabState">
+    <option name="tabSessions">
+      <map>
+        <entry key="0">
+          <value>
+            <TabSessionState>
+              <option name="projectPath" value="D:\java.bianji\web-ai-project02" />
+              <option name="provider" value="claude" />
+              <option name="sessionId" value="73eef002-543f-4484-82f8-6325ed7a6764" />
+              <option name="cwd" value="D:\java.bianji\web-ai-project02" />
+              <option name="model" value="claude-sonnet-5[1m]" />
+              <option name="permissionMode" value="auto" />
+            </TabSessionState>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
