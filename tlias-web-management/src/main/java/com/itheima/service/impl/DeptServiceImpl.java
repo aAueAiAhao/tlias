@@ -18,6 +18,10 @@ public class DeptServiceImpl implements DeptService {
         return deptMapper.findAll();
     }
 
+    @Override
+    public void deleteById(Integer deptId) {
+        deptMapper.deleteById(deptId);
+    }
 
 
 }

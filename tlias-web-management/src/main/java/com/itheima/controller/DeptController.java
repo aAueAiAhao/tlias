@@ -2,11 +2,9 @@ package com.itheima.controller;
 import com.itheima.pojo.Dept;
 import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -27,5 +25,13 @@ public class DeptController {
         //静态方法可以直接用类名调用,不需要创建对象了
        return Result.success(deptService.findAll());
         }
+
+    @DeleteMapping("/depts")
+    //若接收属性与形参相同可省略@RequestParam
+    public Result delete(@RequestParam("id") Integer deptId){
+        //值传递给deptService实现类的deptId属性
+        deptService.deleteById(deptId);
+        return Result.success();
+    }
     }
 
