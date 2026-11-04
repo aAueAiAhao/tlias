@@ -1,0 +1,11 @@
+#配置数据库的连接信息
+
+spring:
+  application:
+    name: tlias-web-management
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/tlias #数据库连接池的类型
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: 123456
