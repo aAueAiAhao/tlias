@@ -15,4 +15,10 @@ public interface DeptService {
 
     //添加部门
     void add(Dept dept);
+
+    //查询回显
+    Dept findById(Integer id);
+
+    //修改数据
+    void update(Dept dept);
 }

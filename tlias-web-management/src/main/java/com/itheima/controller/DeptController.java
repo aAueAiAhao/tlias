@@ -4,6 +4,7 @@ import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
 import com.sun.source.doctree.DeprecatedTree;
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -39,6 +40,18 @@ public class DeptController {
     @PostMapping("/depts")
     public Result add(@RequestBody Dept dept){
         deptService.add(dept);
+        return Result.success();
+    }
+    //查询回填
+    @GetMapping("/depts/{id}")
+    public Result findById(@PathVariable("id") Integer id){
+        Dept dept=deptService.findById(id);
+        return Result.success(dept);
+    }
+    //修改数据
+    @PutMapping("/depts")
+    public Result update(@RequestBody Dept dept){
+        deptService.update(dept);
         return Result.success();
     }
     }
