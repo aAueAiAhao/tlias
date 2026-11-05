@@ -1,6 +1,7 @@
 package com.itheima.mapper;
 
 import com.itheima.pojo.Dept;
+import jakarta.annotation.PostConstruct;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -24,4 +25,8 @@ public interface DeptMapper {
     //删除部门
     @Delete("delete from dept where id= #{id}")
     public void deleteById(Integer id);
+
+    //添加部门
+    @Insert("insert into dept(name,create_time,update_time) values (#{name},#{createTime},#{updateTime})")
+    public void add(Dept dept);
 }

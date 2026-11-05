@@ -12,4 +12,7 @@ public interface DeptService {
 
     //删除部门
     void deleteById(Integer deptId);
+
+    //添加部门
+    void add(Dept dept);
 }

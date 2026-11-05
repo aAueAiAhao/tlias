@@ -2,6 +2,7 @@ package com.itheima.controller;
 import com.itheima.pojo.Dept;
 import com.itheima.pojo.Result;
 import com.itheima.service.DeptService;
+import com.sun.source.doctree.DeprecatedTree;
 import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +32,13 @@ public class DeptController {
     public Result delete(@RequestParam("id") Integer deptId){
         //值传递给deptService实现类的deptId属性
         deptService.deleteById(deptId);
+        return Result.success();
+    }
+
+    //添加部门
+    @PostMapping("/depts")
+    public Result add(@RequestBody Dept dept){
+        deptService.add(dept);
         return Result.success();
     }
     }
