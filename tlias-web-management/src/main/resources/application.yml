@@ -16,3 +16,9 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+
+
+#spring事务管理日志(可以显示日志的debug内容)
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
