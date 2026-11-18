@@ -14,7 +14,9 @@ public class EmpLogServiceImpl implements EmpLogService {
     @Autowired
     private EmpLogMapper empLogMapper;
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)//
+    //就是在当前这个方法执行开始之前来开启事务，方法执行完毕之后提交事务。如果在这个方法执行的过程当中出现了异常，就会进行事务的回滚操作。
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     @Override
     public void insertLog(EmpLog empLog) {
         empLogMapper.insert(empLog);

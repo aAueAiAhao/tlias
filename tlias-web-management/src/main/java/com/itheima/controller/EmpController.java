@@ -10,6 +10,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 
 /*
@@ -23,16 +25,28 @@ public class EmpController {
     @Autowired
     private EmpService empService;
 
+
+
     @GetMapping
     public Result page(EmpQueryParam empQueryParam) {
         PageResult<Emp> pageResult=empService.page(empQueryParam);
         log.info("查询请求参数:{}",empQueryParam);
         return Result.success(pageResult);
     }
+
+
     @PostMapping
     public Result save(@RequestBody Emp emp) {
         log.info("添加员工参数:{}",emp);
         empService.insert(emp);
+        return Result.success();
+    }
+
+    /*批量删除员工*/
+    @DeleteMapping
+    public Result deleteEmpByIds(@RequestParam List<Integer> ids) {
+        log.info("批量删除员工ids:{}",ids);
+        empService.deleteByIds(ids);
         return Result.success();
     }
 

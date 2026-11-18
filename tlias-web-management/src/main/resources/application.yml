@@ -22,3 +22,15 @@ mybatis:
 logging:
   level:
     org.springframework.jdbc.support.JdbcTransactionManager: debug
+#文件上传大小
+servlet:
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 100MB
+
+#阿里云云盘配置信息
+aliyun:
+  oss:
+    endpoint: "https://oss-cn-beijing.aliyuncs.com"
+    bucketName: "javaweb-ai-wjh"
+    region: "cn-beijing"

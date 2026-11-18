@@ -46,8 +46,9 @@ public class EmpServiceImpl implements EmpService {
 
 
     }
+    //事务控制rollbackFor = Exception.class是指定回滚的异常类型
+    @Transactional(rollbackFor = Exception.class)
 
-    @Transactional(rollbackFor = Exception.class)//事务控制
     @Override
     public void insert(Emp emp) {
         try{
@@ -74,5 +75,19 @@ public class EmpServiceImpl implements EmpService {
             empLogService.insertLog(empLog);
         }
 
+    }
+
+
+    /*
+    *批量删除员工
+    * */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public void deleteByIds(List<Integer> ids) {
+        //1.删除员工表员工
+        empMapper.deletEmpByIds(ids);
+
+        //2.删除工作经历表员工
+        empExprMapper.deleteByEmpIds(ids);
     }
 }
