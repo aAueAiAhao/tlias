@@ -3,12 +3,10 @@ package com.itheima.mapper;
 import com.itheima.pojo.Emp;
 import com.itheima.pojo.EmpQueryParam;
 import io.micrometer.common.KeyValues;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 /*
 * 操作员工基础信息
@@ -51,4 +49,19 @@ public interface EmpMapper {
     *修改员工基本信息
     * */
     void updateById(Emp emp);
+
+    /*
+    * 统计各个部门的员工人数
+    * Map<>的用法,key value的键值对,前一个是健,后一个是对,后序用于转化json
+    * */
+    //MapKey是给返回的数据按找你选择的key的值命名,例如{1:{pos:1,count:10}},如果要拿list里面的数据按别名拿就行
+    @MapKey("pos")
+    List<Map<String,Object>> getCountByDeptId();
+
+
+
+    /*
+    * 统计各个性别的人数
+    * */
+    List<Map> getCountByGender();
 }

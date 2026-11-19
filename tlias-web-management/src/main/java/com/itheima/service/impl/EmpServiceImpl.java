@@ -17,6 +17,8 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class EmpServiceImpl implements EmpService {
@@ -101,6 +103,10 @@ public class EmpServiceImpl implements EmpService {
     public Emp getInfo(Integer id) {
        return empMapper.getInfo(id);
     }
+
+    /*
+    * 修改员工信息
+    * */
     @Transactional(rollbackFor = Exception.class)
     @Override
     public void update(Emp emp) {
@@ -120,5 +126,31 @@ public class EmpServiceImpl implements EmpService {
         }
 
 
+
+    }
+
+
+    /*
+    * 根据部门统计人数
+    * */
+    @Transactional(rollbackFor = Exception.class)
+    @Override
+    public JobOption reportCountByDept() {
+        //先接取数据
+        List<Map<String,Object>> list=empMapper.getCountByDeptId();
+        //1.把部门封装到jobList
+        List<Object> jobList= list.stream().map(dataMap->dataMap.get("pos")).toList();
+        //2.把人数封装到dataList
+        List<Object> dataList= list.stream().map(dataMap->dataMap.get("total")).toList();
+        return new JobOption(jobList,dataList);
+    }
+
+
+    /*
+    * 根据性别统计人数
+    * */
+    @Override
+    public List<Map> reportCountByGender() {
+        return empMapper.getCountByGender();
     }
 }
