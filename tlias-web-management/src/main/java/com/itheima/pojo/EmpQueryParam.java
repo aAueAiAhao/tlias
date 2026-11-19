@@ -12,9 +12,9 @@ public class EmpQueryParam {
     private Integer pageSize=10;
     private String name;
     private Integer gender;
-    @DateTimeFormat(pattern = "yyyy-mm-dd")//定义时间的格式
+    @DateTimeFormat(pattern = "yyyy-MM-dd")//定义时间的格式
     private LocalDate begin;
-    @DateTimeFormat(pattern = "yyyy-mm-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate end;
 
 }

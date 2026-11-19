@@ -42,4 +42,13 @@ public interface EmpMapper {
     * */
      void deletEmpByIds(List<Integer> ids);
 
+     /*
+     * 查询回显
+     * */
+    Emp getInfo(Integer id);
+
+    /*
+    *修改员工基本信息
+    * */
+    void updateById(Emp emp);
 }
